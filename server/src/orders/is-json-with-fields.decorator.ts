@@ -8,12 +8,8 @@ export function IsJsonWithFields(validationOptions?: ValidationOptions) {
             propertyName: propertyName,
             options: validationOptions,
             validator: {
-                validate(value: any, args: ValidationArguments) {
-                    if (typeof value !== 'string') {
-                        return false;
-                    }
+                validate(json: any, args: ValidationArguments) {
                     try {
-                        const json = JSON.parse(value);
                         if (!Array.isArray(json)) {
                             return false
                         }
@@ -22,6 +18,7 @@ export function IsJsonWithFields(validationOptions?: ValidationOptions) {
                                 return false;
                             }
                         }
+                        return true;
                     } catch {
                         return false;
                     }

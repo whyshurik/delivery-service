@@ -10,7 +10,7 @@ export class OrdersService {
     ) { }
 
     async create({ products, user_id }: CreateOrderDto) {
-        const availableRobots = await this.prismaService.robots.findFirst({
+        const availableRobot = await this.prismaService.robots.findFirst({
             where: {
                 Orders: {
                     none: {
@@ -20,7 +20,7 @@ export class OrdersService {
             }
         })
 
-        if (!availableRobots) {
+        if (!availableRobot) {
             throw new HttpException('No robots available', HttpStatus.NOT_FOUND)
         }
 
@@ -28,11 +28,11 @@ export class OrdersService {
             data: {
                 user: user_id,
                 product: JSON.stringify(products.map(({ productId, quantity }) => ({
-                    product: productId,
+                    productId,
                     quantity
                 }))),
                 status: $Enums.Statuses.PROCESSING,
-                robot: availableRobots.id
+                robot: availableRobot.id
             }
         })
     }
