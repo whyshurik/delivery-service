@@ -24,27 +24,31 @@ model Users {
 }
 
 model Products {
-  id     Int      @id @default(autoincrement())
-  name   String
-  price  Int
-  Orders Orders[]
+  id    Int    @id @default(autoincrement())
+  name  String
+  price Int
 
   @@map("products")
 }
 
 model Orders {
-  id         Int      @id @default(autoincrement())
-  product Int
-  user    Int
-  robot   Int
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id        Int      @id @default(autoincrement())
+  product   String
+  user      Int
+  robot     Int
+  status    Statuses
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  Products Products @relation(fields: [product], references: [id])
-  Users    Users    @relation(fields: [user], references: [id])
-  Robots   Robots   @relation(fields: [robot], references: [id])
-
+  Users  Users  @relation(fields: [user], references: [id])
+  Robots Robots @relation(fields: [robot], references: [id])
 
   @@unique([product, user, robot])
   @@map("orders")
+}
+
+enum Statuses {
+  PROCESSING
+  REJECTED
+  SUCCESS
 }

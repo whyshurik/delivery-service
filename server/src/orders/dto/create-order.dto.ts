@@ -1,14 +1,13 @@
 import {IsInt} from "class-validator";
+import {IsJsonWithFields} from "../is-json-with-fields.decorator";
 
 export class CreateOrderDto {
 
-    @IsInt()
-    readonly product_id: number;
+    @IsJsonWithFields()
+    readonly products: Array<{ productId: number; quantity: number }>;
 
     @IsInt()
     readonly user_id: number;
 
-    @IsInt()
-    readonly robot_id: number;
 }
 

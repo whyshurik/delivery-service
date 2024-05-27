@@ -1,32 +1,38 @@
-import {Injectable, HttpStatus, HttpException} from '@nestjs/common';
-import {CreateOrderDto} from "./dto/create-order.dto";
-import {PrismaService} from "../prisma/prisma.service";
+import { Injectable, HttpStatus, HttpException } from '@nestjs/common';
+import { CreateOrderDto } from "./dto/create-order.dto";
+import { PrismaService } from "../prisma/prisma.service";
+import { $Enums } from ".prisma/client";
 
 @Injectable()
 export class OrdersService {
     constructor(
         private readonly prismaService: PrismaService
-    ) {
-    }
+    ) { }
 
-    async create({ product_id, user_id, robot_id }: CreateOrderDto) {
-        const exist = await this.prismaService.orders.findFirst({
+    async create({ products, user_id }: CreateOrderDto) {
+        const availableRobots = await this.prismaService.robots.findFirst({
             where: {
-                product: product_id,
-                user: user_id,
-                robot: robot_id
+                Orders: {
+                    none: {
+                        status: $Enums.Statuses.PROCESSING
+                    }
+                }
             }
         })
 
-        if (exist) {
-            throw new HttpException('Order already exist', HttpStatus.BAD_REQUEST)
+        if (!availableRobots) {
+            throw new HttpException('No robots available', HttpStatus.NOT_FOUND)
         }
 
         return this.prismaService.orders.create({
             data: {
-                product: product_id,
                 user: user_id,
-                robot: robot_id
+                product: JSON.stringify(products.map(({ productId, quantity }) => ({
+                    product: productId,
+                    quantity
+                }))),
+                status: $Enums.Statuses.PROCESSING,
+                robot: availableRobots.id
             }
         })
     }
