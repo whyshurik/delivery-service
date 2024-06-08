@@ -5,4 +5,6 @@ export class CreateProductDto {
     readonly name: string;
     @IsInt()
     readonly price: number;
+    @IsString()
+    readonly image: string;
 }

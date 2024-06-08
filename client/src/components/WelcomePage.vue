@@ -35,14 +35,19 @@ export default {
 
 <template>
   <section>
-    <div class="flex-container">
-      <div id="flex-box1">Аптека</div>
-      <div id="flex-box2">
-        <div class="parts" id="part1">1</div>
-        <div class="parts" id="part2">2</div>
-        <div class="parts" id="part3">3</div>
-      </div>
+<!--    <div class="flex-container">-->
+<!--      <div id="flex-box1">Аптека</div>-->
+<!--      <div id="flex-box2">-->
+<!--        <div class="parts" id="part1">1</div>-->
+<!--        <div class="parts" id="part2">2</div>-->
+<!--        <div class="parts" id="part3">3</div>-->
+<!--      </div>-->
+<!--    </div>-->
+    <div>
+      <p>Taken from wikpedia</p>
+      <img src="data:image/png;base64, " alt="Red dot" />
     </div>
+
     <div class="container-cards">
       <ul class="card-list">
         <li v-for="product in products" :key="product.id" class="card">

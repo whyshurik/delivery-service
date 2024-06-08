@@ -27,6 +27,7 @@ model Products {
   id    Int    @id @default(autoincrement())
   name  String
   price Int
+  image String
 
   @@map("products")
 }
