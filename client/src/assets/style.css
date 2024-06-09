@@ -1,2 +1,13 @@
 @import './base.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@layer base {
+    @font-face {
+        font-family: 'Nanum Muengjo';
+        src: url('@/assets/fonts/NanumMyeongjo-Regular.ttf') format("truetype"), url("@/assets/fonts/NanumMyeongjo-Bold.ttf") format("truetype"),url("@/assets/fonts/NanumMyeongjo-ExtraBold.ttf") format("truetype") ;
+        font-weight: 400;
+        font-style: normal;
+    }
+}
