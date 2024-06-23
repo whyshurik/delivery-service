@@ -39,7 +39,7 @@ export default {
       <div class="flex-box1 font-nanum">
         <div class="welcome-text">Welcome to Pharmacy</div>
         <div class="circle1"></div>
-        <div class="button1"><p class="text1">Go to cart</p></div>
+        <button class="button1"><p class="text1">Go to cart</p></button>
       </div>
       <div class="flex-box2 ">
         <img src="E:\zxc\delivery-service\client\public\serpent.png" alt="Serpent Image" class="frontline-image">
@@ -63,7 +63,7 @@ export default {
             <p class="text-lg font-medium text-gray-900 font-nanum flex items-center">
               <span class="inline-block w-1/2">{{ product.price }}.00$</span>
               <!-- Replace with your element that should be 50% width -->
-              <button class="relative inset-0 flex items-center justify-center rounded-lg bg-blue-500 w-1/2 border">Add to cart</button>
+              <button class="button2 relative inset-0 flex items-center justify-center rounded-lg bg-blue-500 w-1/2 border border-black text-[#23B680] transition duration-300 ease-in-out hover:bg-blue-600 hover:text-white">Add to cart</button>
             </p>
           </a>
         </div>
@@ -137,7 +137,17 @@ export default {
   justify-content: center;
   border-radius: 20px;
   border: 1px solid black;
+}
+.button1:hover {
+  background-color: #23B680;
+  color: white;
+border: white;
 
+}
+.button2:hover {
+  background-color: #23B680;
+  color: white;
+  border: white;
 }
 .text1 {
   margin: 0;

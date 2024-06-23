@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6635626-6db4-4b75-a486-f138f4e52915" name="Changes" comment="added visual and button" />
+    <list default="true" id="e6635626-6db4-4b75-a486-f138f4e52915" name="Changes" comment="assets">
+      <change beforePath="$PROJECT_DIR$/client/src/components/WelcomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/WelcomePage.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -180,6 +182,7 @@
       <workItem from="1718456862315" duration="15592000" />
       <workItem from="1718557842069" duration="5997000" />
       <workItem from="1719083040396" duration="9624000" />
+      <workItem from="1719151636975" duration="3710000" />
     </task>
     <task id="LOCAL-00001" summary="added validation and orders logic">
       <option name="closed" value="true" />
@@ -221,7 +224,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719111128155</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="assets">
+      <option name="closed" value="true" />
+      <created>1719151814683</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1719151814683</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,6 +259,7 @@
     <MESSAGE value="added frontend products list" />
     <MESSAGE value="added pages" />
     <MESSAGE value="added visual and button" />
-    <option name="LAST_COMMIT_MESSAGE" value="added visual and button" />
+    <MESSAGE value="assets" />
+    <option name="LAST_COMMIT_MESSAGE" value="assets" />
   </component>
 </project>
