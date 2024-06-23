@@ -22,7 +22,7 @@ export default {
               resolve('all good');
             })
             .catch(error => {
-              console.error('Error al obtener la lista de personajes:', error);
+              console.error('Error', error);
               reject(error);
             });
       })
@@ -36,12 +36,18 @@ export default {
 <template>
   <section>
     <div class="flex-container mx-auto px-16 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-      <div class="flex-box1 font-nanum">Pharmacy</div>
+      <div class="flex-box1 font-nanum">
+        <div class="welcome-text">Welcome to Pharmacy</div>
+        <div class="circle1"></div>
+        <div class="button1"><p class="text1">Go to cart</p></div>
+      </div>
       <div class="flex-box2 ">
-       <div class="parts" id="part1">1</div>
-        <div class="parts" id="part2">2</div>
-        <div class="parts" id="part3">3</div>
-     </div>
+        <img src="E:\zxc\delivery-service\client\public\serpent.png" alt="Serpent Image" class="frontline-image">
+        <div class="parts" id="part1"></div>
+        <div class="parts" id="part2"></div>
+        <div class="parts" id="part3"></div>
+
+      </div>
     </div>
 
     <div class="bg-white">
@@ -53,8 +59,12 @@ export default {
             <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
               <img :src="'http://localhost:3000/api/images/' + product.name + '.png'" alt="product.name" class="h-full w-full object-cover object-center group-hover:opacity-75" />
             </div>
-            <h3 class="mt-4 text-sm text-gray-700 font-nanum">{{ product.name }}</h3>
-            <p class="mt-1 text-lg font-medium text-gray-900 font-nanum">{{ product.price }}.00$</p>
+            <h3 class="mt-4 text-sm text-gray-700 font-nanum text-16px">{{ product.name }}</h3>
+            <p class="text-lg font-medium text-gray-900 font-nanum flex items-center">
+              <span class="inline-block w-1/2">{{ product.price }}.00$</span>
+              <!-- Replace with your element that should be 50% width -->
+              <button class="relative inset-0 flex items-center justify-center rounded-lg bg-blue-500 w-1/2 border">Add to cart</button>
+            </p>
           </a>
         </div>
       </div>
@@ -91,19 +101,84 @@ export default {
   background: #B8D9C0;
   height: 629px;
   width: 601px;
-  align-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative
+}
+.welcome-text {
+  font-size: 20px;
+  position: absolute;
+}
+.circle1 {
+  margin-top: 442px;
+  margin-bottom: 120px;
+  height: 67px;
+  width: 73px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  background-image: url('public/basket.png');
+  background-size: 55px 55px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.button1 {
+  background-color: #ffffff;
+  height: 39px;
+  width: 99px;
+  margin-top: 525px;
+  margin-bottom: 65px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  border: 1px solid black;
+
+}
+.text1 {
+  margin: 0;
 }
 
 .flex-box2 {
   background: #DAEFDC;
   height: 629px;
   width: 601px;
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
 }
 
+
 .parts {
-  height: auto;
-  width: auto;
+  height: 628px;
+  width: 200px;
+}
+
+#part1 {
+  background-color: #DAEFDC; /* Красный */
+}
+
+#part2 {
+  background-color: #CEE8CE; /* Зеленый */
+}
+
+#part3 {
+  background-color: #B8D9C0; /* Синий */
+}
+.frontline-image {
+  width: 345px;
+  height: 345px;
+  object-fit: cover;
+  position: absolute; /* Position image absolutely */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust to center the image */
 }
 
 </style>

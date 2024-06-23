@@ -18,6 +18,7 @@ model Robots {
 model Users {
   id       Int      @id @default(autoincrement())
   username String
+  phone String
   Orders   Orders[]
 
   @@map("users")
