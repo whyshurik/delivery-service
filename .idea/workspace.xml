@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e6635626-6db4-4b75-a486-f138f4e52915" name="Changes" comment="added visual and button" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="Vue Composition API Component" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="false" />
+    <option name="myAllFileTypesSelected" value="true" />
+    <option name="mySelectedFileTypes">
+      <set />
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;whyshurik&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/whyshurik/delivery-service.git&quot;,
+    &quot;accountId&quot;: &quot;6ce2b269-19a9-4e63-b18a-4398947924f2&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2h0XtGBzfjwyE1P1vavGPw7Neqz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;19.8.1&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.14.2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Sasha/Desktop&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.build-only.executor&quot;: &quot;Run&quot;,
+    &quot;npm.build.executor&quot;: &quot;Run&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;npm.start:debug.executor&quot;: &quot;Debug&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\zxc\\delivery-service\\client\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\zxc\delivery-service\server\dist" />
+      <recent name="E:\zxc\delivery-service\server\src\products\images" />
+      <recent name="E:\zxc\delivery-service\client\assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\zxc\delivery-service\client\src\assets\fonts" />
+      <recent name="E:\zxc\delivery-service\server\assets" />
+      <recent name="E:\zxc\delivery-service\client\src" />
+      <recent name="E:\zxc\delivery-service\client" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="build-only" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/client/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build-only" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/client/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/client/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start:debug" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/server/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start:debug" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.start:debug" />
+        <item itemvalue="npm.build-only" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-WS-241.15989.105" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e6635626-6db4-4b75-a486-f138f4e52915" name="Changes" comment="" />
+      <created>1716732183088</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716732183088</updated>
+      <workItem from="1716732184588" duration="3787000" />
+      <workItem from="1716737838840" duration="1540000" />
+      <workItem from="1716739425422" duration="199000" />
+      <workItem from="1716739653660" duration="94000" />
+      <workItem from="1716739766345" duration="9571000" />
+      <workItem from="1716814233212" duration="12143000" />
+      <workItem from="1717201634037" duration="95000" />
+      <workItem from="1717611062678" duration="9374000" />
+      <workItem from="1717766374171" duration="3452000" />
+      <workItem from="1717770320088" duration="8619000" />
+      <workItem from="1717780096638" duration="9296000" />
+      <workItem from="1717845427838" duration="1922000" />
+      <workItem from="1717921480768" duration="21927000" />
+      <workItem from="1718014303439" duration="27250000" />
+      <workItem from="1718456862315" duration="15592000" />
+      <workItem from="1718557842069" duration="5997000" />
+      <workItem from="1719083040396" duration="9624000" />
+    </task>
+    <task id="LOCAL-00001" summary="added validation and orders logic">
+      <option name="closed" value="true" />
+      <created>1716817098918</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716817098918</updated>
+    </task>
+    <task id="LOCAL-00002" summary="gitignore update">
+      <option name="closed" value="true" />
+      <created>1716817235285</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716817235285</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added frontend products list">
+      <option name="closed" value="true" />
+      <created>1717789307263</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1717789307263</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added pages">
+      <option name="closed" value="true" />
+      <created>1717948578840</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717948578840</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added visual and button">
+      <option name="closed" value="true" />
+      <created>1719111128155</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1719111128155</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/server" />
+    </ignored-roots>
+    <MESSAGE value="Orders service update" />
+    <MESSAGE value="added validation and orders logic" />
+    <MESSAGE value="gitignore update" />
+    <MESSAGE value="added frontend products list" />
+    <MESSAGE value="added pages" />
+    <MESSAGE value="added visual and button" />
+    <option name="LAST_COMMIT_MESSAGE" value="added visual and button" />
+  </component>
+</project>
