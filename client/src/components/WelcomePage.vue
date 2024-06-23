@@ -1,20 +1,24 @@
-<script lang="ts">
+<script>
 //import {api} from "@/api";
 import axios from "axios";
-import type {Product} from "@/api/types";
+//import type {Product} from "@/api/types";
+import {productClass} from "@/classes/productClass.js"
+import {ref} from "vue";
 
 
 export default {
   data() {
     return {
-      products: []
+      products: [],
+      getProduct:''
     };
   },
   mounted() {
     this.fetchProducts('http://localhost:3000/api/products/all')
   },
   methods: {
-    async fetchProducts(url: string) {
+    ref,
+    async fetchProducts(url) {
       return new Promise((resolve, reject) => {
         axios.get(url)
             .then(response => {
@@ -28,6 +32,17 @@ export default {
       })
 
     },
+    async addToCart(product) {
+      if (!sessionStorage.getItem('data'))
+        sessionStorage.setItem('data','[]');
+      let productStorage = JSON.parse(sessionStorage.data)
+      console.log(typeof productStorage)
+      productStorage.push(product)
+      console.log(productStorage)
+      sessionStorage.data = JSON.stringify(productStorage)
+      console.log(sessionStorage.data)
+      //localStorage.clear()
+    }
   },
 }
 ;
@@ -39,7 +54,12 @@ export default {
       <div class="flex-box1 font-nanum">
         <div class="welcome-text">Welcome to Pharmacy</div>
         <div class="circle1"></div>
-        <button class="button1"><p class="text1">Go to cart</p></button>
+        <router-link
+            to="/order"
+            custom
+            v-slot="{ href, route, navigate, isActive, isExactActive }">
+          <a :href="href" @click="navigate" class="button1"><p class="text1">Go to cart</p></a>
+        </router-link>
       </div>
       <div class="flex-box2 ">
         <img src="E:\zxc\delivery-service\client\public\serpent.png" alt="Serpent Image" class="frontline-image">
@@ -63,7 +83,7 @@ export default {
             <p class="text-lg font-medium text-gray-900 font-nanum flex items-center">
               <span class="inline-block w-1/2">{{ product.price }}.00$</span>
               <!-- Replace with your element that should be 50% width -->
-              <button class="button2 relative inset-0 flex items-center justify-center rounded-lg bg-blue-500 w-1/2 border border-black text-[#23B680] transition duration-300 ease-in-out hover:bg-blue-600 hover:text-white">Add to cart</button>
+              <button @click="addToCart(product)" class="button2 relative inset-0 flex items-center justify-center rounded-lg bg-blue-500 w-1/2 border border-black text-[#23B680] transition duration-300 ease-in-out hover:bg-blue-600 hover:text-white">Add to cart</button>
             </p>
           </a>
         </div>
