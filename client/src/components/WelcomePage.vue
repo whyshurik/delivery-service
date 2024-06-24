@@ -81,7 +81,7 @@ export default {
             </div>
             <h3 class="mt-4 text-sm text-gray-700 font-nanum text-16px">{{ product.name }}</h3>
             <p class="text-lg font-medium text-gray-900 font-nanum flex items-center">
-              <span class="inline-block w-1/2">{{ product.price }}.00$</span>
+              <span class="inline-block w-1/2">{{ product.price }}.00₴</span>
               <!-- Replace with your element that should be 50% width -->
               <button @click="addToCart(product)" class="button2 relative inset-0 flex items-center justify-center rounded-lg bg-blue-500 w-1/2 border border-black text-[#23B680] transition duration-300 ease-in-out hover:bg-blue-600 hover:text-white">Add to cart</button>
             </p>
@@ -90,21 +90,6 @@ export default {
       </div>
     </div>
 
-
-<!--    <div class="container-cards">-->
-<!--      <ul class="card-list">-->
-<!--        <li v-for="product in products" :key="product.id" class="card">-->
-<!--          <div class="image">-->
-<!--            <img v-bind:src="'http://localhost:3000/api/images/' + product.name + '.png'" alt="product.name"/>-->
-<!--          </div>-->
-<!--          <div class="information">-->
-<!--            <span>Name: {{ product.name }}</span>-->
-<!--            <br>-->
-<!--            <span>Price: {{ product.price }}</span>-->
-<!--          </div>-->
-<!--        </li>-->
-<!--      </ul>-->
-<!--    </div>-->
   </section>
 </template>
 
@@ -162,7 +147,6 @@ export default {
   background-color: #23B680;
   color: white;
 border: white;
-
 }
 .button2:hover {
   background-color: #23B680;
@@ -210,5 +194,7 @@ border: white;
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%); /* Adjust to center the image */
 }
-
+section {
+  background-color: #FFF9F9;
+}
 </style>
