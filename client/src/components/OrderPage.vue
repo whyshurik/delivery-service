@@ -1,5 +1,6 @@
 <script>
 import App from "@/App.vue";
+import axios from "axios";
 
 export default {
   components: {App},
@@ -9,7 +10,11 @@ export default {
     return {
       totalPrice: 0,
       products: [],
-      orderPrice: 0
+      orderPrice: 0,
+      username: '',
+      phoneNumber: '',
+      isPhoneNumberValid: false,
+      orderResponse: {}
     }
   },
   mounted() {
@@ -29,17 +34,81 @@ export default {
         }
       });
       this.products = Array.from(productMap.values());
-      console.log(this.products)
     },
     async removeItem(product) {
       this.products = this.products.filter(p => p.name !== product.name);
       sessionStorage.data = JSON.stringify(this.products)
+      await this.countOrderTotal()
       console.log(sessionStorage.data)
     },
     async countOrderTotal() {
       this.orderPrice = this.products.reduce((total, product) => {
         return total + (product.price * product.amount);
       }, 0);
+    },
+    async postOrder() {
+      try {
+        const orderData = JSON.parse(sessionStorage.getItem('data'))
+        if (!orderData || orderData.length === 0) {
+          throw new Error('The order is empty');
+        }
+        this.validateNumber();
+        if (!this.isPhoneNumberValid) {
+          throw new Error('Phone number is invalid');
+        }
+        const userRequest = {
+          username: this.username,
+          phoneNumber: this.phoneNumber
+        }
+
+        const userResponse = await axios.post('http://localhost:3000/api/users', userRequest)
+        const orderRequest = {
+          products: this.transformArray(orderData),
+          user_id: userResponse.data.id
+        }
+        console.log(orderRequest)
+        const orderResponse = await axios.post('http://localhost:3000/api/orders', orderRequest)
+        console.log('Order submitted successfully', orderResponse.data);
+        this.orderResponse = orderResponse.data;
+        alert('Order submitted successfully');
+      } catch (err) {
+        console.error(err.message);
+        alert(err.message);
+      }
+    },
+    validateNumber() {
+      const regex = /^(\+?38)?0\d{9}$/; // Регулярное выражение для проверки украинского номера телефона
+      this.isPhoneNumberValid = regex.test(this.phoneNumber);
+    },
+    transformArray(arr) {
+      const productMap = new Map();
+
+      // Populate the productMap with productId as key and quantity as value
+      arr.forEach(item => {
+        const productId = item.id;
+        if (productMap.has(productId)) {
+          // If productId already exists, increase quantity by 1
+          productMap.set(productId, productMap.get(productId) + 1);
+        } else {
+          // If productId does not exist, set initial quantity to 1
+          productMap.set(productId, 1);
+        }
+      });
+      return Array.from(productMap, ([productId, quantity]) => ({
+        productId: productId,
+        quantity: quantity
+      }));
+    },
+    async confirmDelivery() {
+      try {
+
+        const res = await axios.put('http://localhost:3000/api/orders', this.orderResponse)
+        console.log('Order submitted successfully', res.data);
+        alert('Order submitted successfully');
+      } catch (err) {
+        console.error(err.message);
+        alert(err.message);
+      }
     }
   }
 }
@@ -83,13 +152,24 @@ export default {
     <div class="part1-flex">
       <div class="totalCount">Total price: {{ orderPrice }}.00₴</div>
       <p>How should we call you?</p>
-      <input class="username"></input>
+      <input
+          class="username"
+          type="text"
+          v-model="username"
+          placeholder="Enter your username"
+      >
       <p>Enter your phone number:</p>
-      <input class="phone-number"></input>
+      <input class="phone-number" type="tel"
+             v-model="phoneNumber"
+             @input="validateNumber"
+             required
+             placeholder="Enter your phone number"
+      >
+      <span v-if="!isPhoneNumberValid" style="color: red;">Invalid phone number</span>
     </div>
     <div class="buttons-flex">
-      <button class="order-button">Order</button>
-      <button class="confirm-button">Confirm order</button>
+      <button class="order-button" @click="postOrder()">Create order</button>
+      <button class="confirm-button" @click="confirmDelivery()">Confirm delivery</button>
     </div>
   </div>
 </template>
@@ -127,6 +207,10 @@ section {
   justify-content: center;
   align-items: center;
   width: 991px;
+}
+
+span {
+  font-size: 16px;
 }
 
 table {
@@ -245,16 +329,19 @@ p {
   border-radius: 20px;
   margin-left: 10%; /* Margin equally distributes space on both sides */
 }
+
 button {
   background-color: #ffffff;
   border-radius: 20px;
   border: 1px solid black;
 }
+
 button:hover {
   background-color: #23B680;
   color: white;
   border: white;
 }
+
 .confirm-button {
   width: 200px;
   height: 70px;

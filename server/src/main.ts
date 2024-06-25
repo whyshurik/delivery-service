@@ -9,7 +9,7 @@ async function bootstrap() {
     origin: [
       'http://localhost:3002',
     ],
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST", "PUT"],
     credentials: true,
   });
 

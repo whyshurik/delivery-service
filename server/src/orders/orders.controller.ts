@@ -1,4 +1,4 @@
-import {Body, Controller, Post} from '@nestjs/common';
+import {Body, Controller, Post, Put} from '@nestjs/common';
 import {OrdersService} from "./orders.service";
 import {CreateOrderDto} from "./dto/create-order.dto";
 
@@ -8,5 +8,9 @@ export class OrdersController {
     @Post()
     async create(@Body() dto:CreateOrderDto){
         return this.ordersService.create(dto)
+    }
+    @Put()
+    async setSuccessStatus(@Body() data) {
+        return this.ordersService.setStatus(data.id)
     }
 }

@@ -1,4 +1,4 @@
-import {Injectable, HttpStatus, HttpException} from '@nestjs/common';
+import {HttpException, HttpStatus, Injectable} from '@nestjs/common';
 import {CreateOrderDto} from "./dto/create-order.dto";
 import {PrismaService} from "../prisma/prisma.service";
 import {$Enums} from ".prisma/client";
@@ -6,7 +6,7 @@ import {$Enums} from ".prisma/client";
 @Injectable()
 export class OrdersService {
     constructor(
-        private readonly prismaService: PrismaService
+        private readonly prismaService: PrismaService,
     ) {
     }
 
@@ -20,6 +20,7 @@ export class OrdersService {
                 }
             }
         })
+
 
         if (!availableRobot) {
             throw new HttpException('No robots available', HttpStatus.NOT_FOUND)
@@ -36,5 +37,16 @@ export class OrdersService {
                 robot: availableRobot.id
             }
         })
+    }
+
+    async setStatus(paramId: number) {
+        return this.prismaService.orders.update({
+            where: {
+                id: paramId
+            },
+            data: {
+                status: $Enums.Statuses.SUCCESS
+            }
+        });
     }
 }
